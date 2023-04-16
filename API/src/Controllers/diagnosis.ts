@@ -1,0 +1,15 @@
+import {Request,Response} from 'express'
+
+export const createDiagnosis = () => {
+
+
+}
+
+export const updateDiagnosis = () => {
+
+    
+}
+export const getDiagnosisForUser = () => {
+
+    
+}
