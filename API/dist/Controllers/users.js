@@ -8,6 +8,7 @@ const signIn = () => {
 };
 exports.signIn = signIn;
 const getUsers = () => {
+    console.log('This are all users');
 };
 exports.getUsers = getUsers;
 const deleteUser = () => {

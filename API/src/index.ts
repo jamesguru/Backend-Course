@@ -3,8 +3,6 @@ import cors from "cors"
 import dotenv from "dotenv"
 import { appointmentRoute, diagnosisRoute, patientRoute, userRoute } from "./routes";
 
-
-
 const app = express();
 
 dotenv.config();
