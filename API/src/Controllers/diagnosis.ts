@@ -9,6 +9,7 @@ export const updateDiagnosis = () => {
 
     
 }
+
 export const getDiagnosisForUser = () => {
 
     
