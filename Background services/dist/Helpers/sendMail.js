@@ -12,17 +12,31 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreateAppointment = void 0;
-const database_1 = __importDefault(require("../Helpers/database"));
-const db = new database_1.default();
-const CreateAppointment = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { patient_name, doctor_email, date, patient_email } = req.body;
-    try {
-        yield db.exec('addAppointment', { patient_name, doctor_email, date, patient_email });
-        res.status(201).json({ message: "appointment has been created successfully" });
+const nodemailer_1 = __importDefault(require("nodemailer"));
+const dotenv_1 = __importDefault(require("dotenv"));
+dotenv_1.default.config();
+function createTransporter(config) {
+    const transporter = nodemailer_1.default.createTransport(config);
+    return transporter;
+}
+let configurations = {
+    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 587,
+    requireTLS: true,
+    auth: {
+        user: process.env.EMAIL,
+        pass: process.env.PASSWORD
     }
-    catch (error) {
-        res.status(500).json({ error: error });
-    }
+};
+const sendMail = (messageoption) => __awaiter(void 0, void 0, void 0, function* () {
+    const transporter = yield createTransporter(configurations);
+    yield transporter.verify();
+    yield transporter.sendMail(messageoption, (error, info) => {
+        if (error) {
+            console.log(error);
+        }
+        console.log(info.response);
+    });
 });
-exports.CreateAppointment = CreateAppointment;
+exports.default = sendMail;

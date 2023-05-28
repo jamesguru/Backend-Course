@@ -54,7 +54,7 @@ const DiagnosisEmail = async () => {
             try {
 
                 await sendMail(messageoption);
-                await db.exec('updateDiagnosisSendEmail');
+                await db.exec('updateDiagnosisSentEmail');
 
             } catch (error) {
                 console.log(error)
