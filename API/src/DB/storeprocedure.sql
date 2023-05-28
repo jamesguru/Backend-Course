@@ -139,9 +139,9 @@
 
 -- CREATE PROCEDURE checkPatient
 -- AS
--- SELECT * FROM patient WHERE issent=0; 
+-- SELECT * FROM patients WHERE issent=0; 
 
 -- UPDATE PATIENT AND SEND EMAIL
--- CREATE PROCEDURE updatePatientEmailSent
+-- CREATE PROCEDURE updatePatientsEmailSent
 -- AS
 -- UPDATE patients SET issent=1 WHERE issent=0

@@ -17,7 +17,7 @@ export const createDiagnosis = async (req: Request, res: Response) => {
 
     } catch (error) {
 
-        res.status(400).json({ error: 'Something went wrong' })
+        res.status(400).json({ error: error })
     }
 
 
